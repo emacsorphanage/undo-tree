@@ -2766,9 +2766,9 @@ Within the undo-tree visualizer, the following keys are available:
 
   \\{undo-tree-visualizer-mode-map}"
 
-  nil                       ; init value
-  undo-tree-mode-lighter    ; lighter
-  undo-tree-map             ; keymap
+  :init-value nil
+  :lighter undo-tree-mode-lighter
+  :keymap undo-tree-map
 
   (cond
    (undo-tree-mode  ; enabling `undo-tree-mode'
