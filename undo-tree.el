@@ -2228,8 +2228,8 @@ which is defined in the `warnings' library.\n")
   ;; return non-nil if the corresponding buffer state really is unmodified.
   (let* ((changeset
 	  (or (undo-tree-node-redo node)
-	      (and (setq changeset (car (undo-tree-node-next node)))
-		   (undo-tree-node-undo changeset))))
+	      (let ((cs (car (undo-tree-node-next node))))
+		(and cs (undo-tree-node-undo cs)))))
 	 (ntime
 	  (let ((elt (car (last changeset))))
 	    (and (consp elt) (eq (car elt) t) (consp (cdr elt))
